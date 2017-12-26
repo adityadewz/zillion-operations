@@ -1,0 +1,403 @@
+<div class="row">
+
+ <div class="col-md-4" ng-repeat="product in products">
+    <div class="panel">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          {{product.name}}
+        </h1>
+      </div>
+      <div class="panel-body">
+        <table class="table">
+        <tr>
+          <th>Category</th>
+          <th>Revenue</th>
+        </tr>
+          <tr>
+            <td>Cycle in hours</td>
+            <td>{{product.cycle}}</td>
+          </tr>
+          <tr>
+            <td>Yield</td>
+            <td>{{product.yield}}</td>
+          </tr>
+          <tr>
+            <td>Total Output
+            </td>
+            <td>{{product.tOutput}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+
+<div class="row">
+ 
+   <div class="col-md-6">
+    <div class="panel" ng-controller="dashboardChart2Ctrl">
+        <div class="panel-heading">
+          <h1 class="panel-title">
+            Total Output
+           <select ng-model="viewByChart2">
+          <option value="chart" ng-selected="true">Chart</option>
+            <option value="table">Table</option>
+          </select>
+          </h1>
+          </div>
+          <div class="panel-body">
+               <div id="barChart2" class="admin-chart" ng-show="viewByChart2==='chart'"></div>
+                <div class="chart-table" ng-show="viewByChart2==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Product
+                   </th>
+                   <th>
+                     Output
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data[month]">
+                   <td>
+                     {{item.product}}
+                   </td>
+                   <td>
+                     {{item.output}}
+                   </td>
+              
+                 </tr>
+               </table>
+             </div>  
+             </div>   
+          </div>
+          <div class="panel-footer">
+          
+            <div class="footer-select">
+               <select ng-model="month" ng-change="changeByMonth(month)" class="pull-left">
+              <option value="{{item.value}}" ng-repeat="item in months">{{item.name}}</option>
+            </select>
+
+    <select ng-model="year" ng-change="changeByYear(year)" class="pull-right">
+              <option value="{{item}}" ng-repeat="item in years">{{item}}</option>
+            </select>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+   <div class="col-md-6">
+    <div class="panel" ng-controller="dashboardChart4Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Throughput <select ng-model="viewByChart4">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="dashboardChart4" class="admin-chart" ng-show="viewByChart4==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart4==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Day
+                   </th>
+                   <th>
+                     Throughput
+                   </th>
+                 </tr>
+                 <tr ng-repeat="item in data[product][month]">
+                   <td>
+                     {{item.day}}
+                   </td>
+                   <td>
+                     {{item.throughput}}
+                   </td>
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+         <div class="panel-footer">
+        <div class="footer-select">
+           <select class="pull-left" ng-model="product" ng-change="changeByProduct(product)">
+            <option value="Product-A" ng-repeat="product in products">{{product}}</option>
+          </select>
+          <select class="pull-right" ng-model="month" ng-change="changeByMonth(month)">
+            <option value="{{item.value}}" ng-repeat="item in months">{{item.name}}</option>
+          </select>
+        </div>
+            
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+{{months | json}}
+   <div class="col-md-6">
+    <div class="panel" ng-controller="dashboardChart3Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+         Waste per month <select ng-model="viewByChart3">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+      <div id="clusteredBarChart" class="admin-chart" ng-show="viewByChart3==='chart'"></div>
+             <div class="chart-table" ng-show="viewByChart3==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Product
+                   </th>
+                   <th>
+                     Reason-1
+                   </th>
+                   <th>
+                     Reason-2
+                   </th>
+
+                   <th>
+                     Reason-3
+                   </th>
+                   <th>
+                     Reason-4
+                   </th>
+                 </tr>
+                 <tr ng-repeat="item in data[month]">
+                   <td>
+                     {{item.product}}
+                   </td>
+                   <td>
+                     {{item.r1}}
+                   </td>
+                  <td>
+                     {{item.r2}}
+                   </td>
+
+                   <td>
+                     {{item.r3}}
+                   </td>
+
+                   <td>
+                     {{item.r4}}
+                   </td>
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+              <div class="panel-footer">
+          
+            <div class="footer-select">
+               <select ng-model="month" ng-change="changeByMonth(month)" class="pull-left">
+              <option value="{{item.value}}" ng-repeat="item in months">{{item.name}}</option>
+            </select>
+         <!--    <select ng-model="mySegment" ng-change="changeBySegment(mySegment)" class="pull-right">
+              <option value="all" ng-selected="true">All</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select> -->
+            </div>
+          </div>
+    </div>
+    </div>
+      <div class="col-md-6">
+    <div class="panel" ng-controller="dashboardChart5Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Branch Performance <select ng-model="viewByChart5">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="dashboardChart5" class="admin-chart" ng-show="viewByChart5==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart5==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Month
+                   </th>
+                   <th>
+                     Output
+                   </th>
+                   <th>
+                       Claim
+                   </th>
+                 </tr>
+                 <tr ng-repeat="item in data[line]">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item.output}}
+                   </td>
+                   <td>
+                     {{item.claim}}
+                   </td>
+                
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+          <div class="panel-footer">
+          
+            <div class="footer-select">
+               <select ng-model="line" ng-change="changeByLine(line)" class="pull-left">
+              <option value="A">Asembly Line A</option>
+              <option value="B">Asembly Line B</option>
+              <option value="C">Asembly Line C</option>
+              <option value="D">Asembly Line D</option>
+            </select>
+         <!--    <select ng-model="mySegment" ng-change="changeBySegment(mySegment)" class="pull-right">
+              <option value="all" ng-selected="true">All</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select> -->
+            </div>
+          </div>
+    </div>
+    </div>
+    </div>
+<div class="row">
+
+    <!-- <div class="col-md-12">
+    <div class="panel" ng-controller="dashboardChart6Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          YOY Monthly sales <select ng-model="viewByChart6">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="dashboardChart6" class="admin-chart" ng-show="viewByChart6==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart6==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Month
+                   </th>
+                   <th>
+                     Output
+                   </th>
+                   <th>
+                       Product B
+                   </th>
+                   <th>
+                       Product Market
+                   </th>
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item["Product-A"]}}
+                   </td>
+                   <td>
+                     {{item["Product-B"]}}
+                   </td>
+                   <td>
+                     {{item["Product-C"]}}
+                   </td>
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div> -->
+        <div class="col-md-12">
+    <div class="panel" ng-controller="dashboardChart2Ctrl">
+        <div class="panel-heading">
+          <h1 class="panel-title">
+            Assembly Line
+           <select ng-model="viewByChart2">
+          <option value="chart" ng-selected="true">Chart</option>
+            <option value="table">Table</option>
+          </select>
+          </h1>
+          </div>
+        <!--   <div class="panel-body">
+               <div id="barChart2" class="admin-chart" ng-show="viewByChart2==='chart'"></div>
+                <div class="chart-table" ng-show="viewByChart2==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Month
+                   </th>
+                   <th>
+                     Target
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data[myYear][mySegment]">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item.Target}}
+                   </td>
+              
+                 </tr>
+               </table>
+             </div>  
+             </div>   
+          </div> -->
+          <div class="panel-footer">
+        <!--   
+            <div class="footer-select">
+               <select ng-model="myYear" ng-change="changeByYear(myYear)" class="pull-left">
+              <option value="2017" ng-selected="true">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+            </select>
+            <select ng-model="mySegment" ng-change="changeBySegment(mySegment)" class="pull-right">
+              <option value="all" ng-selected="true">All</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+
+
+
+  </div>

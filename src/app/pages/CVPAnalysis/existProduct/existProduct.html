@@ -1,0 +1,44 @@
+
+
+<div class="row">
+	<div class="col-md-4">
+          <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Sales Volume Analysis
+                        </h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                <tr>
+                                <th>Category</th>
+                                <th >Value</th>      
+                                </tr>
+                                <tr ng-repeat="item in data">
+                                    <td>{{item.cateogary}}</td>
+                                    <td>{{item.value}}</td>
+                                </tr>
+                                
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>   
+         <div class="col-md-8"
+         ba-panel
+         ba-panel-title="CVP Analysis of Existing Product"
+         ba-panel-class="with-scroll">
+      <div id="ExistChart1" class="admin-chart" ng-controller="ExistChart1Ctrl"></div>
+    </div>
+
+         
+    </div>
+
+<div class="row">
+	
+
+</div>

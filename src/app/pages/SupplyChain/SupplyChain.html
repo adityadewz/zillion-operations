@@ -1,0 +1,331 @@
+
+<div class="row">
+	<!-- <div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY Monthly sales"
+         ba-panel-class="with-scroll">
+      <div class="admin-chart" ng-controller="YOYChart1Ctrl"></div>
+    </div> -->
+
+    <div class="col-md-6">
+    <div class="panel" ng-controller="SupplyChainChart1Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Order vs Inventory <select ng-model="viewByChart1">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="SupplyChainChart1" class="admin-chart" ng-show="viewByChart1==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart1==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Product
+                   </th>
+                   <th>
+                     Order
+                   </th>
+                   <th>
+                       Inventory
+                   </th>
+                   
+                 </tr>
+                 <tr ng-repeat="item in data[month]">
+                   <td>
+                     {{item.product}}
+                   </td>
+                   <td>
+                     {{item.order}}
+                   </td>
+                   <td>
+                     {{item.inventory}}
+                   </td>
+                  
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+        <div class="panel-footer">
+          
+            <div class="footer-select">
+               <select ng-model="month" ng-change="changeByMonth(month)" class="pull-left">
+              <option value="{{item.value}}" ng-repeat="item in months">{{item.name}}</option>
+            </select>
+  
+            </div>
+          </div>
+    </div>
+    </div>
+
+<!--     <div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY R-Quarter Sales (in units)"
+         ba-panel-class="with-scroll">
+      <div id="YOYCHart2" class="admin-chart" ng-controller="YOYChart2Ctrl"></div>
+    </div> -->
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="SupplyChainChart2Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Order Delivery Rate <select ng-model="viewByChart2">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="SupplyChainChart2" class="admin-chart" ng-show="viewByChart2==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart2==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Product
+                   </th>
+                   <th>
+                     Delivery Time
+                   </th>
+                 
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.product}}
+                   </td>
+                   <td>
+                     {{item.time}}
+                   </td>
+                  
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="SupplyChainChart3Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Monthly Orders <select ng-model="viewByChart3">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="SupplyChainChart3" class="admin-chart" ng-show="viewByChart3==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart3==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Product
+                   </th>
+                   <th>
+                    Automobile
+                   </th>
+                    <th>
+                    FMCG
+                   </th>
+                    <th>
+                    Manufacturing
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.product}}
+                   </td>
+                   <td>
+                     {{item.r1}}
+                   </td>
+                    <td>
+                     {{item.r2}}
+                   </td>
+                    <td>
+                     {{item.r3}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="SupplyChainChart4Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+         Fill Rate <select ng-model="viewByChart4">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+          
+        </h1>
+        </div>
+        <div class="panel-body">  
+      
+             <div id="SupplyChainChart4" class="admin-chart" ng-show="viewByChart4==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart4==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Product
+                   </th>
+                   <th>
+                    Fill Rate
+                   </th>
+                   
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.product}}
+                   </td>
+                   <td>
+                     {{item.rate}}
+                   </td>
+
+                  
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+        <div class="panel-footer">
+        <div class="footer-select">
+           <select class="pull-left" ng-model="changeBy.product" ng-change="changeByProduct(changeBy.product)">
+            <option value="producta" ng-selected="true">Product A</option>
+            <option value="productb">Product B</option>
+          </select>
+        
+        </div>
+            
+        </div>
+    </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-md-6">
+    <div class="panel" ng-controller="SupplyChainChart5Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Inventory Day Wise<select ng-model="viewByChart5">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="SupplyChainChart5" class="admin-chart" ng-show="viewByChart5==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart5==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Day
+                   </th>
+                   <th>
+                     Production
+                   </th>
+                   <th>
+                       Shipped
+                   </th>
+                
+                 </tr>
+                 <tr ng-repeat="item in data[product]">
+                   <td>
+                     {{item.day}}
+                   </td>
+                   <td>
+                     {{item.production}}
+                   </td>
+                   <td>
+                     {{item.shipped}}
+                   </td>
+                 
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+        <div class="panel-footer">
+        <div class="footer-select">
+           <select class="pull-left" ng-model="product" ng-change="changeByProduct(product)">
+            <option value="A" ng-selected="true">Product A</option>
+            <option value="B">Product B</option>
+            <option value="C">Product B</option>
+            <option value="D">Product B</option>
+          </select>
+        </div>
+            
+        </div>
+    </div>
+    </div>
+
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="SupplyChainChart6Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Total Inventory <select ng-model="viewByChart6">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="SupplyChainChart6" class="admin-chart" ng-show="viewByChart6==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart6==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Product
+                   </th>
+                   <th>
+                    Quantity
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.product}}
+                   </td>
+                   <td>
+                     {{item.quantity}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,187 @@
+<div class="row">
+
+        <div class="col-md-12"
+         ba-panel
+         ba-panel-title="Monthly Analysis"
+         ba-panel-class="with-scroll">
+      <div id="YOYCHart2" class="admin-chart" ng-controller="CVPChart2Ctrl"></div>
+    </div>
+	<div class="col-md-12">
+            <div class="col-md-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Fixed Costs
+                        </h1>
+                        </div>
+                        <div class="panel-body">
+                        <div class="horizontal-scroll">
+  <table class="table table-hover" st-table="FixedCostItems">
+    <thead>
+    <tr class="sortable">
+      <th st-sort="firstName">Category</th>
+      <th st-sort="lastName">Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in FixedCostItems" class="editable-tr-wrap">
+      <td><span>{{item.cateogary}}</span></td>
+      <td><span editable-text="item.cost" blur="cancel">{{item.cost | currency : "$"}}</span></td>
+
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="12" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Variable Costs(per unit)
+                        </h1>
+                        </div>
+                        <div class="panel-body">
+                        <div class="horizontal-scroll">
+  <table class="table table-hover" st-table="FixedCostItems">
+    <thead>
+    <tr class="sortable">
+      <th st-sort="firstName">Category</th>
+      <th st-sort="lastName">Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in VariableCostItem" class="editable-tr-wrap">
+      <td><span>{{item.cateogary}}</span></td>
+      <td><span editable-text="item.cost" blur="cancel">{{item.cost | currency : "$"}}</span></td>
+
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="12" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Monthly Break Even Point
+                        </h1>
+                        </div>
+                        <div class="panel-body">
+                        <div class="horizontal-scroll">
+  <table class="table table-hover" st-table="FixedCostItems">
+    <thead>
+    <tr class="sortable">
+      <th st-sort="firstName">Category</th>
+      <th st-sort="lastName">Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in VariableCostItem" class="editable-tr-wrap">
+      <td><span>{{item.cateogary}}</span></td>
+      <td><span editable-text="item.cost" blur="cancel">
+   
+   {{item.cost | currency : "$"}}
+    </span></td>
+
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="12" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+                        </div>
+                    </div>
+                </div>
+<!-- 
+                 <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Monthly Break Even Point
+                        </h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <th>Cateogary</th>
+                                        <th>Cost</th>
+                                    </tr>
+                                    <tr ng-repeat="item in BreakEvenPoints">
+                                        <td>
+                                            {{item.cateogary}}
+                                        </td>
+                                        <td>
+                                            {{item.cost | currency : "€"}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+        </div>   
+
+    </div>
+
+    
+
+<div class="row">
+	 <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Sales Volume Analysis
+                        </h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                <tr>
+                                <th>Category</th>
+                                <th ng-repeat="item in SalesVolume">{{item.month}}</th>      
+                                </tr>
+                                <tr>
+                                  <td>Total Cost</td>
+                                  <td ng-repeat="item in SalesVolume">{{item.tc | currency : "€"}}</td>
+                                </tr>
+                                <tr>
+                                  <td>Total Revenue</td>
+                                  <td ng-repeat="item in SalesVolume">{{item.tr | currency : "€"}}</td>
+                                </tr>
+                                <tr>
+                                  <td>profit</td>
+                                  <td ng-repeat="item in SalesVolume">{{item.pr | currency : "€"}}</td>
+                                </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+</div>

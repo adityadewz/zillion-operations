@@ -1,0 +1,64 @@
+<div class="page-top clearfix" scroll-position="scrolled" max-height="50" ng-class="{'scrolled': scrolled}">
+  <a href="#/dashboard" class="al-logo clearfix"><span>OPS</span> BI</a>
+  <a href class="collapse-menu-link ion-navicon" ba-sidebar-toggle-menu></a>
+
+  <div class="search">
+    <i class="ion-ios-search-strong" ng-click="startSearch()"></i>
+    <input id="searchInput" type="text" placeholder="Search for...">
+  </div>
+
+<!--   <div class="theme-change search">
+    <form>
+      <label class="radio-inline">
+  <input type="radio" id="theme1" name="theme" id="theme1" value="theme1"> Theme-1
+</label>
+<label class="radio-inline">
+  <input type="radio" id="theme2" name="theme" id="theme2" value="theme2"> Theme-2
+</label>
+
+    </form>
+  </div> -->
+
+  <div class="user-profile clearfix">
+   <div class="al-user-profile sales-view">
+      <a class="profile-toggle-link" href="/auth.html">
+       <i class="fa fa-sign-out proPic" aria-hidden="true"></i>
+
+      </a>
+      
+    </div>
+   <!--  <div class="al-user-profile sales-view" id="sales-pic" ng-class="{'active':sessionStorage.viewAs==='sales'}" uib-dropdown>
+      <a uib-dropdown-toggle class="profile-toggle-link">
+        <i class="fa fa-user proPic" aria-hidden="true"></i>
+      </a>
+      <ul  class="top-dropdown-menu profile-dropdown" uib-dropdown-menu>
+        <li><i class="dropdown-arr"></i></li>
+        <li><a class="switch-view" ng-show="viewAs==='management'"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+<span>Management View</span></a></li>
+        <li><a class="signout switch-view" ng-click="switchViewTo('sales')" ng-show="viewAs==='management'"><i class="fa fa-power-off"></i><span>Switch to Sales View</span></a></li>
+      </ul>
+    </div>
+{{viewAs}} -->
+    <div class="al-user-profile management-view" id="management-pic" ng-class="{'active':sessionStorage.viewAs==='management'}" uib-dropdown>
+      <a uib-dropdown-toggle class="profile-toggle-link">
+          <i class="fa fa-user proPic" aria-hidden="true"></i>
+
+      </a>
+      <ul  class="top-dropdown-menu profile-dropdown" uib-dropdown-menu>
+        <li><i class="dropdown-arr"></i></li>
+        <li><a class="switch-view" ng-show="viewAs==='sales'"><i class="fa fa-user"></i><span>Sales Executive View</span></a>
+
+        <a class="switch-view" ng-show="viewAs==='management'"><i class="fa fa-user"></i><span>Management Executive View</span></a>
+
+        </li>
+        <li><a class="signout switch-view" ng-click="switchViewTo('management')" ng-show="viewAs==='sales'"><i class="fa fa-power-off"></i><span>Switch to Management View</span></a>
+        
+        <a class="signout switch-view" ng-click="switchViewTo('sales')" ng-show="viewAs==='management'"><i class="fa fa-power-off"></i><span>Switch to Sales View</span></a>
+        </li>
+      </ul>
+    </div>
+
+
+    <msg-center></msg-center>
+  </div>
+</div>

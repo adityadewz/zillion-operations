@@ -1,0 +1,241 @@
+
+<div class="row">
+	<!-- <div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY Monthly sales"
+         ba-panel-class="with-scroll">
+      <div class="admin-chart" ng-controller="YOYChart1Ctrl"></div>
+    </div> -->
+
+    <div class="col-md-6">
+    <div class="panel" ng-controller="YOYChart1Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          YOY Monthly sales <select ng-model="viewByChart1">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="YOYCHart1" class="admin-chart" ng-show="viewByChart1==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart1==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Month
+                   </th>
+                   <th>
+                     Product A
+                   </th>
+                   <th>
+                       Product B
+                   </th>
+                   <th>
+                       Product Market
+                   </th>
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item["Product-A"]}}
+                   </td>
+                   <td>
+                     {{item["Product-B"]}}
+                   </td>
+                   <td>
+                     {{item["Product-C"]}}
+                   </td>
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+<!--     <div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY R-Quarter Sales (in units)"
+         ba-panel-class="with-scroll">
+      <div id="YOYCHart2" class="admin-chart" ng-controller="YOYChart2Ctrl"></div>
+    </div> -->
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="YOYChart2Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          YOY R-Quarter Sales (in units) <select ng-model="viewByChart2">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="YOYCHart2" class="admin-chart" ng-show="viewByChart2==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart2==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Month
+                   </th>
+                   <th>
+                     Product A
+                   </th>
+                   <th>
+                       Product B
+                   </th>
+                   <th>
+                       Product Market
+                   </th>
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item["Product-A"]}}
+                   </td>
+                   <td>
+                     {{item["Product-B"]}}
+                   </td>
+                   <td>
+                     {{item["Product-C"]}}
+                   </td>
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+</div>
+
+<div class="row">
+<!-- 	<div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY MAT sales (in units)"
+         ba-panel-class="with-scroll">
+      <div id="YOYCHart3" class="admin-chart" ng-controller="YOYChart3Ctrl"></div>
+    </div> -->
+
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="YOYChart3Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          YOY MAT sales (in units) <select ng-model="viewByChart3">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="YOYCHart3" class="admin-chart" ng-show="viewByChart3==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart3==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Date
+                   </th>
+                   <th>
+                    Units
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.date}}
+                   </td>
+                   <td>
+                     {{item.value}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+   <!--  <div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY R-Quarter Sales (in units)"
+         ba-panel-class="with-scroll">
+      <div id="YOYCHart4" class="admin-chart" ng-controller="YOYChart4Ctrl"></div>
+    </div>
+ -->
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="YOYChart4Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+         YOY R-Quarter Sales (in units) <select ng-model="viewByChart4">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+          
+        </h1>
+        </div>
+        <div class="panel-body">  
+      
+             <div id="YOYCHart4" class="admin-chart" ng-show="viewByChart4==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart4==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Month
+                   </th>
+                   <th>
+                    Series A
+                   </th>
+                   <th>
+                       Series B
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item["series-a"]}}
+                   </td>
+
+                    <td>
+                     {{item["series-b"]}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+        <div class="panel-footer">
+        <div class="footer-select">
+           <select class="pull-left" ng-model="changeBy.product" ng-change="changeByProduct(changeBy.product)">
+            <option value="producta" ng-selected="true">Product A</option>
+            <option value="productb">Product B</option>
+          </select>
+          <select class="pull-right" ng-model="changeBy.type" ng-change="changeByType(changeBy.type)">
+            <option value="ytd" ng-selected="true">YTD</option>
+            <option value="qtd">QTD</option>
+          </select>
+        </div>
+            
+        </div>
+    </div>
+    </div>
+</div>
